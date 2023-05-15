@@ -2,8 +2,25 @@
 const { Sequelize, DataTypes, Op } = require("sequelize");
 require("dotenv").config();
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {});
+const POSTGRES_URL = process.env.DATABASE_URL || process.env.DATABASE_LOCAL
 
+
+const sequelizeOption = {
+     dialectOptions: {
+       ssl: {
+         require: true,
+         rejectUnauthorized: false,
+       },
+     },
+  };
+  
+let sequelize = new Sequelize(POSTGRES_URL, sequelizeOption);
+
+sequelize.authenticate().then(() => {
+  console.log('Database connected to postgres');
+}).catch((err) => {
+  console.log(err)
+});
 const db = {};
 db.sequelize = sequelize;
 db.Op = Op;
