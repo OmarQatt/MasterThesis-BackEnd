@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Letter = sequelize.define("letter", {
+    const Letter = sequelize.define("Thesis", {
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -36,7 +36,13 @@ module.exports = (sequelize, DataTypes) => {
         departmentName: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        LetterNameinEnglish: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        
+
 
     
     });
