@@ -16,7 +16,9 @@ const sequelizeOption = {
   },
 };
 
-const sequelize = new Sequelize(POSTGRES_URL , sequelizeOption);
+const sequelize = new Sequelize(POSTGRES_URL 
+    , sequelizeOption
+    );
 
 // models
 
