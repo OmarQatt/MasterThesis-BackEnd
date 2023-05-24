@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "MasterThesis",
+    "name": "master-thesis-back-end",
     "builds": [
        { "src": "server.js", "use": "@vercel/node" }
     ],
