@@ -2,10 +2,10 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const userRouter = require("./routes/user.router");
-const handlNotFound = require("./error-handlers/404");
-const handlError = require("./error-handlers/500");
-const MasterLetter = require("./routes/MasterForm.router");
+const userRouter = require("../routes/user.router");
+const handlNotFound = require("../error-handlers/404");
+const handlError = require("../error-handlers/500");
+const MasterLetter = require("../routes/MasterForm.router");
 
 app.use(cors());
 app.use(express.json());
