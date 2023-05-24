@@ -1,6 +1,6 @@
 "use strict";
 require("dotenv").config();
-const server = require("./server");
+const server = require("./src/server");
 const {db} = require("./models/index");
 
 db.sync()
