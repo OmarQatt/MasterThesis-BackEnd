@@ -1,7 +1,7 @@
 "use strict";
 const jwt = require("jsonwebtoken");
-module.exports = (sequelize, DataTypes) => {
-  const user = sequelize.define("user", {
+module.exports = (pool, DataTypes) => {
+  const user = pool.define("user", {
     userName: {
       type: DataTypes.STRING,
       allowNull: false,

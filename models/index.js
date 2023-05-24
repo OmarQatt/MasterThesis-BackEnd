@@ -3,21 +3,30 @@ const { Sequelize, DataTypes } = require("sequelize");
 const letter = require("./MasterForm");
 require("dotenv").config();
 
-const POSTGRES_URL =
-  process.env.DATABASE_URL ||
-  "postgresql://omar:0000@localhost:5432/postgres";
+// const { Pool } = require("pg");
+// const pool = new Pool({
+//     connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+//   })
+//   pool.connect((err) => {
+//     if (err) throw err;
+//     console.log("Connected to PostgresSQL");
+//   })
+const POSTGRES_URL = 
+  process.env.POSTGRES_URL + "?sslmode=require" 
+//   ||
+//   "postgresql://omar:0000@localhost:5432/postgres";
 
-const sequelizeOption = {
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
-};
+// const sequelizeOption = {
+//   dialectOptions: {
+//     ssl: {
+//       require: true,
+//       rejectUnauthorized: false,
+//     },
+//   },
+// };
 
 const sequelize = new Sequelize(POSTGRES_URL 
-    , sequelizeOption
+    // , sequelizeOption
     );
 
 // models
