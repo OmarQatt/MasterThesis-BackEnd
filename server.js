@@ -20,15 +20,13 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-function startServer(port) {
-  app.listen(port, (err) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log(`Server is running on port ${port}`);
-  });
+function start(port) {
+  app.listen(port, () => console.log(`Hello from port: ${port}`));
 }
 
 app.use("*", handlNotFound);
 app.use(handlError);
-module.exports = { startServer, app };
+module.exports = {
+  start: start,
+  app: app,
+};

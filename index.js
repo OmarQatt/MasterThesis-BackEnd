@@ -1,11 +1,15 @@
 "use strict";
-const { startServer } = require("./server");
 require("dotenv").config();
-const db = require("./models/index");
+const server = require("./server");
+const {db} = require("./models/index");
 
-db.sequelize.sync().then(() => {
-  startServer(process.env.PORT);
-});
+db.sync()
+.then(() => {
+  server.start(process.env.PORT || 4000);
+})
+.catch(console.error);
+
+
 
 // db.sequelize.sync({ force: true }).then(() => {
 //   startServer(process.env.PORT);
